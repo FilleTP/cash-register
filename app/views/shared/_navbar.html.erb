@@ -1,0 +1,16 @@
+<nav class="d-flex justify-content-between align-items-center p-4">
+  <div class="logo">
+    <%= link_to root_path do %>
+      <%= image_tag "default-image", alt: "Logo", width: 70, height: 70 %>
+    <% end %>
+  </div>
+
+  <ul class="nav-links d-flex ms-auto list-unstyled">
+    <li class="me-4">
+      <%= link_to "Home", root_path, class: "d-block" %>
+    </li>
+    <li>
+      <%= link_to "Cart", cart_path, class: "d-block" %>
+    </li>
+  </ul>
+</nav>
