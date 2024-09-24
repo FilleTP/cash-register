@@ -1,2 +1,17 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="row g-3 product-grid">
+  <% @products.each do |product| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="product-card">
+        <% if product.photo.attached? %>
+          <%= cl_image_tag product.photo.key, width: 300, height: 300, crop: :fill, alt: product.name %>
+        <% else %>
+          <%= image_tag "default-image", width: 300, height: 300, alt: "placeholder grey image" %>
+        <% end %>
+        <h2><%= product.name %></h2>
+        <p><%= product.product_code %></p>
+        <p><%= product.price %> €</p>
+      </div>
+    </div>
+  <% end %>
+</div>
