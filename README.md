@@ -17,17 +17,17 @@
 - The app creates a new cart and stores the id in sessions, unless one exists already
 
 **Models**
-*Product*
-  - has many LineItems
-  - product_code (string)
-  - name (string)
-  - price (float)
+  *Product*
+    - has many LineItems
+    - product_code (string)
+    - name (string)
+    - price (float)
 
-*Cart*
-  - has many LineItems, dependent destroy
-  - total_price (float)
+  *Cart*
+    - has many LineItems, dependent destroy
+    - total_price (float)
 
-*LineItem*
-  - belongs to Cart
-  - belongs to Product
-  - quantity (integer)
+  *LineItem*
+    - belongs to Cart
+    - belongs to Product
+    - quantity (integer)
