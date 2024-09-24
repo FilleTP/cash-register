@@ -2,28 +2,29 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe 'validations' do
-    it 'is valid with valid attributes' do
-      product = Product.new(product_code: "GR1", name: 'Sample Product', price: 9.99)
+    it 'is valid with valid attributes and have a photo attached' do
+      product = build(:product)
+      expect(product.photo).to be_attached
       expect(product).to be_valid
     end
 
     it 'is not valid without a product code' do
-      product = Product.new(name: 'Sample Product', price: 9.99)
+      product = build(:product, product_code: nil)
       expect(product).to_not be_valid
     end
 
     it 'is not valid without a name' do
-      product = Product.new(product_code: "GR1", price: 9.99)
+      product = build(:product, name: nil)
       expect(product).to_not be_valid
     end
 
     it 'is not valid without a price' do
-      product = Product.new(product_code: "GR1", name: 'Sample Product')
+      product = build(:product, price: nil)
       expect(product).to_not be_valid
     end
 
     it 'is not valid with a price less than zero' do
-      product = Product.new(product_code: "GR1", name: 'Sample Product', price: -1.0)
+      product = build(:product, price: -1.0)
     end
   end
 
