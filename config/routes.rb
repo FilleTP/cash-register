@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: "products#index"
-  resources :cart, only: :show
-  resources :line_items, only: :create
+  resource :cart, only: :show
+  resources :products, only: [] do
+    resources :line_items, only: [:create]
+  end
 end
