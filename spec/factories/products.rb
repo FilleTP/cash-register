@@ -9,7 +9,6 @@ FactoryBot.define do
         io: File.open(Rails.root.join('spec', 'fixtures', 'files', 'default-image.webp')),
         filename: 'default_image.webp',
         content_type: 'image/webp'
-      )
     end
   end
 end
