@@ -58,10 +58,17 @@ gem "cloudinary"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "dotenv-rails"
+end
+
+group :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'factory_bot_rails'
-  gem "dotenv-rails"
+  gem 'capybara'
+  gem 'selenium-webdriver', '~> 4.10.0'
+  gem 'webdrivers'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
