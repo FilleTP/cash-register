@@ -6,7 +6,7 @@ class LineItemsController < ApplicationController
     if line_item
       line_item.quantity += line_item_params[:quantity].to_i
     else
-      line_item = current_cart.line_items.build(product: product, quantity: line_item_params[:quantity].to_i)
+      line_item = current_cart.line_items.build(product: product, quantity: line_item_params[:quantity].to_i, price: product.price)
     end
 
     if line_item.save
