@@ -12,7 +12,16 @@ class LineItemsController < ApplicationController
     if line_item.save
       redirect_to root_path, notice: "Added to the basket!"
     else
-      render root_path, alert: "Product could not be added"
+      render 'products/index', alert: "Product could not be added", status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    line_item = LineItem.find(params[:id])
+    if line_item.destroy
+      redirect_to cart_path, notice: "Removed product!"
+    else
+      render 'carts/show', alert: "Product could not be removed", status: :unprocessable_entity
     end
   end
 

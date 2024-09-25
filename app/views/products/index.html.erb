@@ -11,12 +11,12 @@
         <div class="product-card-bottom p-4">
           <h3><%= product.name %></h3>
           <p class="mb-4">Price: <%= product.price %> €</p>
-          <%= simple_form_for [product, @line_item], html: { class: "d-flex flex-column" }  do |f| %>
+          <%= simple_form_for [product, @line_item], html: { class: "d-flex flex-column flex-wrap align-content-end" }  do |f| %>
             <div data-controller="quantity">
               <div class="input-group justify-content-center">
-                <button type="button" class="btn btn-light incrementer-button height-fit-content fw-bold border border-dark px-3 py-2" data-action="click->quantity#decrement">-</button>
-                <%= f.input :quantity, label: false, input_html: { class: "form-control py-2 border-top-dark border-bottom-dark border-left-0 border-right-0 rounded-0", value: 1, min: 1, max: 100, data: { quantity_target: "input" } } %>
-                <button type="button" class="btn btn-light incrementer-button height-fit-content fw-bold border border-dark px-3 py-2" data-action="click->quantity#increment">+</button>
+                <button type="button" class="btn btn-light height-fit-content fw-bold light-border px-3 py-2" data-action="click->quantity#decrement">-</button>
+                <%= f.input :quantity, label: false, input_html: { class: "form-control py-2 light-border-top-bottom border-left-0 border-right-0 rounded-0", value: 1, min: 1, max: 100, data: { quantity_target: "input" } } %>
+                <button type="button" class="btn btn-light height-fit-content fw-bold light-border px-3 py-2" data-action="click->quantity#increment">+</button>
               </div>
             </div>
             <%= f.submit "Add", class: "btn btn-primary height-fit-content py-2 px-5 fw-bold" %>

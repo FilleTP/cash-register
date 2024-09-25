@@ -9,7 +9,7 @@ class PricingRules
     @cart.line_items.each do |line_item|
       total += discounted_price(line_item)
     end
-    total
+    total.round(2)
   end
 
   def discounted_price(line_item)
