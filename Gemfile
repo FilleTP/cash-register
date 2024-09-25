@@ -68,7 +68,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver', '~> 4.10.0'
   gem 'webdrivers'
-  gem 'database_cleaner-active_record'
 end
 
 group :development do
