@@ -1,0 +1,17 @@
+<table class='table mb-0'>
+  <thead>
+    <th scope='col'>Name</th>
+    <th scope='col'>Quantity</th>
+    <th scope='col'>Unit Price</th>
+  </thead>
+  <tbody>
+  <% cart.line_items.each_with_index do |line_item, index| %>
+    <%= render 'carts/line_item', line_item: line_item, index: index %>
+  <% end %>
+  <tr>
+    <td class='border-0'></td>
+    <td class='border-0 fw-bold'>Total Price:</td>
+    <td class='border-0' id='total-price'><%= cart.total_price %> € (with discounts)</td>
+  </tr>
+</tbody>
+</table>
