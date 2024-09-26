@@ -1,6 +1,7 @@
 @import 'bootstrap';
 @import 'forms';
 @import 'cards';
+@import 'navbar';
 @import 'flashes';
 
 body {
@@ -15,4 +16,10 @@ a {
 
 .height-fit-content {
   height: fit-content;
+}
+
+@media (max-width: 767px) {
+  h5 {
+    font-size: 0.9rem;
+  }
 }
