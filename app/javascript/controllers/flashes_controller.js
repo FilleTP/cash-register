@@ -7,7 +7,6 @@ export default class extends Controller {
     }, 3000)
 
     this.element.addEventListener('transitionend', () => {
-      console.log(this.element)
       this.element.remove()
     })
   }
