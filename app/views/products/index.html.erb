@@ -6,7 +6,7 @@
         <% if product.photo.attached? %>
           <%= cl_image_tag product.photo.key, class: "img-fluid rounded", alt: product.name %>
         <% else %>
-          <%= image_tag "default-image", class: "img-fluid", alt: "placeholder grey image" %>
+          <%= image_tag "default-image.webp", class: "img-fluid", alt: "placeholder grey image" %>
         <% end %>
         <div class="product-card-bottom p-4">
           <h3><%= product.name %></h3>
