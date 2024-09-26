@@ -1,31 +1,31 @@
 <h1>Products</h1>
-<div class="row g-5 product-grid">
+<div class='row g-5 product-grid'>
   <% @products.each do |product| %>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="product-card rounded">
+    <div class='col-12 col-md-6 col-lg-4'>
+      <div class='product-card rounded'>
         <% if product.photo.attached? %>
-          <%= cl_image_tag product.photo.key, class: "img-fluid rounded", alt: product.name %>
+          <%= cl_image_tag product.photo.key, class: 'img-fluid rounded', alt: product.name %>
         <% else %>
-          <%= image_tag "default-image.webp", class: "img-fluid", alt: "placeholder grey image" %>
+          <%= image_tag 'default-image.webp', class: 'img-fluid', alt: 'placeholder grey image' %>
         <% end %>
-        <div class="product-card-bottom p-4">
+        <div class='product-card-bottom p-4'>
           <h3><%= product.name %></h3>
-          <p class="mb-4">Price: <%= product.price %> €</p>
-          <%= simple_form_for [product, @line_item], html: { class: "d-flex flex-column flex-wrap align-content-end" }  do |f| %>
-            <div data-controller="quantity">
-              <div class="input-group justify-content-center">
-                <button type="button" class="btn btn-light height-fit-content fw-bold light-border px-3 py-2" data-action="click->quantity#decrement">-</button>
-                <%= f.input :quantity, label: false, input_html: { class: "form-control py-2 light-border-top-bottom border-left-0 border-right-0 rounded-0", value: 1, min: 1, max: 100, data: { quantity_target: "input" } } %>
-                <button type="button" class="btn btn-light height-fit-content fw-bold light-border px-3 py-2" data-action="click->quantity#increment">+</button>
+          <p class='mb-4'>Price: <%= product.price %> €</p>
+          <%= simple_form_for [product, @line_item], html: { class: 'd-flex flex-column flex-wrap align-content-end' }  do |f| %>
+            <div data-controller='quantity'>
+              <div class='input-group justify-content-center'>
+                <button type='button' class='btn btn-light height-fit-content fw-bold light-border px-3 py-2' data-action='click->quantity#decrement'>-</button>
+                <%= f.input :quantity, label: false, input_html: { class: 'form-control py-2 light-border-top-bottom border-left-0 border-right-0 rounded-0', value: 1, min: 1, max: 100, data: { quantity_target: 'input' } } %>
+                <button type='button' class='btn btn-light height-fit-content fw-bold light-border px-3 py-2' data-action='click->quantity#increment'>+</button>
               </div>
             </div>
-            <%= f.submit "Add", class: "btn btn-primary height-fit-content py-2 px-5 fw-bold" %>
+            <%= f.submit 'Add', class: 'btn btn-primary height-fit-content py-2 px-5 fw-bold' %>
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-<div class=" my-5 text-end">
-  <%= link_to "Checkout", cart_path, class: "btn btn-primary fw-bold py-2 px-5" %>
+<div class='my-5 text-end'>
+  <%= link_to 'Checkout', cart_path, class: 'btn btn-primary fw-bold py-2 px-5' %>
 </div>
