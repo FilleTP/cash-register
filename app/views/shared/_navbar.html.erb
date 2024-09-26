@@ -7,10 +7,10 @@
 
   <ul class='nav-links d-flex ms-auto list-unstyled text-'>
     <li class='me-4'>
-      <h5><%= link_to 'Products', root_path, class: 'd-block', 'aria-current': (current_page?(root_path) ? 'page' : nil) %></h5>
+      <h5><%= link_to 'Products', root_path, class: 'd-block navbar-link', 'aria-current': (current_page?(root_path) ? 'page' : nil) %></h5>
     </li>
     <li>
-      <h5><%= link_to 'Checkout', cart_path, class: 'd-block', 'aria-current': (current_page?(cart_path) ? 'page' : nil) %></h5>
+      <h5><%= link_to 'Checkout', cart_path, class: 'd-block navbar-link', 'aria-current': (current_page?(cart_path) ? 'page' : nil) %></h5>
     </li>
   </ul>
 </nav>
