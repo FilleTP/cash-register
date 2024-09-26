@@ -3,15 +3,13 @@
   <table class="table mb-0">
     <thead>
       <th scope="col">Name</th>
-      <th scope="col">Product Code</th>
       <th scope="col">Quantity</th>
-      <th scope="col">Price</th>
+      <th scope="col">Unit Price</th>
     </thead>
     <tbody>
       <% current_cart.line_items.each_with_index do |line_item, index| %>
         <tr id="<%= line_item.product.id %>">
-          <td class="border-0"><%= line_item.product.name %></td>
-          <td class="border-0"><%= line_item.product.product_code %></td>
+          <td class="border-0"><%= line_item.product.name %> (<%= line_item.product.product_code %>)</td>
           <td class="border-0"><%= line_item.quantity %></td>
           <td class="border-0">
             <div class="d-flex justify-content-between">
@@ -26,9 +24,8 @@
       <% end %>
       <tr>
         <td class="border-0"></td>
-        <td class="border-0"></td>
         <td class="border-0">Total Price:</td>
-        <td class="border-0" id="total-price"><%= current_cart.total_price %> €</td>
+        <td class="border-0" id="total-price"><%= current_cart.total_price %> € (with discounts)</td>
       </tr>
     </tbody>
   </table>
