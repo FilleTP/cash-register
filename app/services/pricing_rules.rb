@@ -14,15 +14,15 @@ class PricingRules
 
   def discounted_price(line_item)
     case line_item.product.product_code
-    when "GR1" then green_tea_discount(line_item)
-    when "SR1" then strawberries_discount(line_item)
-    when "CF1" then coffee_discount(line_item)
+    when "GR1" then buy_one_get_one_free(line_item)
+    when "SR1" then bulk_discount_percentage_off(line_item, 3, 0.10)
+    when "CF1" then bulk_discount_two_thirds_price(line_item)
     else
       line_item.price * line_item.quantity
     end
   end
 
-  def green_tea_discount(line_item)
+  def buy_one_get_one_free(line_item)
     if line_item.quantity >= 2
       paid_items = (line_item.quantity / 2) + (line_item.quantity % 2)
       line_item.price * paid_items
@@ -31,15 +31,15 @@ class PricingRules
     end
   end
 
-  def strawberries_discount(line_item)
-    if line_item.quantity >= 3
-      line_item.quantity * 4.5
+  def bulk_discount_percentage_off(line_item, min_quantity, discount_percentage)
+    if line_item.quantity >= min_quantity
+      line_item.quantity * (line_item.price * (1 - discount_percentage))
     else
       line_item.price * line_item.quantity
     end
   end
 
-  def coffee_discount(line_item)
+  def bulk_discount_two_thirds_price(line_item)
     if line_item.quantity >= 3
       line_item.quantity * (line_item.price * (2.0 / 3.0))
     else
