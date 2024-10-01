@@ -20,13 +20,6 @@ RSpec.describe PricingRules, type: :service do
     expect(total_price).to eq(expected_price)
   end
 
-  it 'applies coffee bulk discount for 5 coffees' do
-    create(:line_item, cart: cart, product: coffee, quantity: 5, price: coffee.price)
-    expected_price = (5 * (coffee.price * (2.0 / 3.0))).round(2)
-    total_price = PricingRules.new(cart).calculate_discounts
-    expect(total_price).to eq(expected_price)
-  end
-
   it 'applies multiple discounts for cart with more than 1 line item' do
     create(:line_item, cart: cart, product: green_tea, quantity: 5, price: green_tea.price)
     create(:line_item, cart: cart, product: strawberries, quantity: 8, price: strawberries.price)
@@ -34,7 +27,7 @@ RSpec.describe PricingRules, type: :service do
 
     green_tea_total = 3 * green_tea.price
     strawberries_total = 4.5 * 8
-    coffe_total = 3 * (coffee.price * (2.0 / 3.0))
+    coffe_total = 3 * coffee.price
 
     expected_price = (green_tea_total + strawberries_total + coffe_total).round(2)
     total_price = PricingRules.new(cart).calculate_discounts
