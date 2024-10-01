@@ -16,7 +16,6 @@ class PricingRules
     case line_item.product.product_code
     when "GR1" then buy_one_get_one_free(line_item)
     when "SR1" then bulk_discount_percentage_off(line_item, 3, 0.10)
-    when "CF1" then bulk_discount_two_thirds_price(line_item)
     else
       line_item.price * line_item.quantity
     end
@@ -34,14 +33,6 @@ class PricingRules
   def bulk_discount_percentage_off(line_item, min_quantity, discount_percentage)
     if line_item.quantity >= min_quantity
       line_item.quantity * (line_item.price * (1 - discount_percentage))
-    else
-      line_item.price * line_item.quantity
-    end
-  end
-
-  def bulk_discount_two_thirds_price(line_item)
-    if line_item.quantity >= 3
-      line_item.quantity * (line_item.price * (2.0 / 3.0))
     else
       line_item.price * line_item.quantity
     end
