@@ -8,12 +8,22 @@ RSpec.describe LineItem, type: :model do
     end
 
     it 'is not valid without a cart' do
-      line_item = build(:line_item, cart: nil)
+      line_item = build(:line_item, cart: nil, quantity: 2, price: 5)
       expect(line_item).to_not be_valid
     end
 
     it 'is not valid without a product' do
-      line_item = build(:line_item, product: nil)
+      line_item = build(:line_item, product: nil, quantity: 2, price: 5)
+      expect(line_item).to_not be_valid
+    end
+
+    it 'is not valid with a negative quantity value' do
+      line_item = build(:line_item, quantity: -2, price: 5)
+      expect(line_item).to_not be_valid
+    end
+
+    it 'is not valid with a negative price' do
+      line_item = build(:line_item, quantity: 1, price: -2)
       expect(line_item).to_not be_valid
     end
   end
