@@ -43,7 +43,7 @@ RSpec.describe 'Cart Flow', type: :system do
 
       total_price = green_tea.price + strawberries.price + coffee.price
       within("#total-price") do
-        expect(page).to have_content(total_price)
+        expect(page).to have_content(total_price.round(2))
       end
     end
   end
