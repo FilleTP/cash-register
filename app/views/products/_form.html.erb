@@ -1,4 +1,4 @@
-<%= simple_form_for [product, line_item], html: { class: 'd-flex flex-column flex-wrap align-content-end' }  do |f| %>
+<%= simple_form_for [product, line_item], url: product_line_items_path(@product), html: { class: 'd-flex flex-column flex-wrap align-content-end' }  do |f| %>
   <div data-controller='quantity'>
     <div class='input-group justify-content-center'>
       <button type='button' class='btn btn-light height-fit-content fw-bold light-border px-3 py-2' data-action='click->quantity#decrement'>-</button>
