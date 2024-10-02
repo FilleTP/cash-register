@@ -1,1 +1,25 @@
-@import "bootstrap";
+@import 'bootstrap';
+@import 'forms';
+@import 'cards';
+@import 'navbar';
+@import 'flashes';
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.height-fit-content {
+  height: fit-content;
+}
+
+@media (max-width: 767px) {
+  h5 {
+    font-size: 0.9rem;
+  }
+}

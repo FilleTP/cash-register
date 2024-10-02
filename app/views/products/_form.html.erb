@@ -1,0 +1,10 @@
+<%= simple_form_for [product, line_item], url: product_line_items_path(product), html: { class: 'd-flex flex-column flex-wrap align-content-end' }  do |f| %>
+  <div data-controller='quantity'>
+    <div class='input-group justify-content-center'>
+      <button type='button' class='btn btn-light height-fit-content fw-bold light-border px-3 py-2' data-action='click->quantity#decrement'>-</button>
+      <%= f.input :quantity, label: false, input_html: { class: 'form-control py-2 light-border-top-bottom border-left-0 border-right-0 rounded-0', value: 1, min: 1, max: 100, data: { quantity_target: 'input' } } %>
+      <button type='button' class='btn btn-light height-fit-content fw-bold light-border px-3 py-2' data-action='click->quantity#increment'>+</button>
+    </div>
+  </div>
+  <%= f.submit 'Add', class: 'btn btn-primary height-fit-content py-2 px-5 fw-bold' %>
+<% end %>

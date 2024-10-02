@@ -1,0 +1,11 @@
+@media (max-width: 767px) {
+  nav .logo img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.navbar-link[aria-current="page"] {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+ }
