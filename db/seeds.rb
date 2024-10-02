@@ -1,5 +1,6 @@
 require "open-uri"
 
+LineItem.destroy_all
 Product.destroy_all
 
 strawberries = Product.new(product_code: "SR1", name: "Strawberries", price: 5.0)
@@ -19,5 +20,11 @@ coffee_file = URI.open("https://res.cloudinary.com/dgkfw5qpt/image/upload/v17271
 coffee.photo.attach(io: coffee_file, filename: "coffee.webp", content_type: "image/webp")
 coffee.save!
 puts "Created #{coffee.name}"
+
+ice_coffee = Product.new(product_code: "IC1", name: "Ice Coffee", price: 10.50)
+ice_coffee_file = URI.open("https://res.cloudinary.com/dgkfw5qpt/image/upload/v1727179247/coffee_hqp8op.webp")
+ice_coffee.photo.attach(io: ice_coffee_file, filename: "ice_coffee.webp", content_type: "image/webp")
+ice_coffee.save!
+puts "Created #{ice_coffee.name}"
 
 puts "Created all #{Product.count} products"
